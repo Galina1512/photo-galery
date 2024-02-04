@@ -1,0 +1,22 @@
+.main {
+    margin-top: 120px auto !important;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: normal; */
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.text {
+    margin-top: 50px;
+    color: white;
+    }
+    
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+}

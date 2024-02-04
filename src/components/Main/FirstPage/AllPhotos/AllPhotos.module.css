@@ -1,0 +1,38 @@
+body {
+    background-color: #00000f;
+}
+
+.container {
+    width: 300px;
+    height: max-content;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.small_img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 250px;
+}
+
+.formatDate {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.author {
+    text-align: left;
+}
+
+.likes {
+    text-align: end;
+}
+
+.hard:hover {
+    cursor: pointer;
+    border: 2px solid rgb(244, 8, 8);
+    border-radius: 50%;
+}
