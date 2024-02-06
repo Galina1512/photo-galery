@@ -8,7 +8,7 @@ export const FirstPage = () => {
   
   useEffect(() => {
     axios
-     .get( `${URL_ALL_PHOTOS}?client_id=${ACCESS_KEY}&per_page=30`)
+     .get( `${URL_ALL_PHOTOS}?client_id=${ACCESS_KEY}&per_page=3`)
      .then((response) => {
       setData(response.data);
       console.log(response.data);
