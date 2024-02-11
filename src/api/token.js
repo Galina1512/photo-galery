@@ -2,7 +2,7 @@ import { ACCESS_KEY, SECRET_KEY, REDIRECT_URI, API_URL_TOKEN } from './const';
 import axios from 'axios';
 
 export const setToken = (token) => {
-    localStorage.setItem('bearer', token);
+    localStorage.setItem('Bearer', token);
   };
   
   export const getToken = () => {
@@ -27,8 +27,8 @@ export const setToken = (token) => {
           console.error ('Ошибка авторизации:', err.message);
       });
   }
-    if (localStorage.getItem('bearer')) {
-        token = localStorage.getItem('bearer');
+    if (localStorage.getItem('Bearer')) {
+        token = localStorage.getItem('Bearer');
   };
       return token;
 

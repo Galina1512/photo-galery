@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   photos: [],
   error: '',
-  count: 5,
+  count: 30,
   page: 1,
 };
 
@@ -13,7 +13,10 @@ export const photosSlice = createSlice({
     name: 'photos',
     initialState,
     reducers: {
-
+      firstPhotos: (state) => {
+        state.photos = [];
+        state.page = 1;
+      },    
     },
     extraReducers: (builder) => {
         builder
@@ -33,4 +36,5 @@ export const photosSlice = createSlice({
         })
     }
 });
+export const { firstPhotos } = photosSlice.actions;
 export default photosSlice.reducer;

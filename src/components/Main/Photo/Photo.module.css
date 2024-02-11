@@ -1,0 +1,51 @@
+.container {
+    padding:  20px; /* Добавление отступов */
+    /* box-shadow:  0 -10px  10px rgba(126, 152, 225, .1);  */
+}
+.small_img {
+    margin-top: 50px;
+}
+
+.author {
+    display: flex;
+    align-items: baseline;
+}
+
+.date {
+   display: flex;
+   justify-content: space-between; 
+   margin: 0 40px 0 5px;
+}
+.avatar {
+    margin-left: 30px;
+    margin-top: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+.text, .text_date, .text_likes {
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.text_date {
+    text-align: start;
+}
+.text_likes {
+    font-size: 22px;
+}
+.heart {
+    display: flex;
+    gap: 10px;
+    color:rgb(210, 26, 26);
+    margin-left: 10px;
+    background-color: inherit;
+    border: none;
+    font-size: 20px;
+}
+ .image {
+    max-width: 65vw;
+    height: fit-content;
+    box-shadow: 0 -3px  15px  rgba(67, 67, 241, 0.797);
+    /* box-shadow: 10px -10px  15px  rgba(67, 67, 241, 0.797); */
+ }

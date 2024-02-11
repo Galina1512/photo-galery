@@ -2,7 +2,6 @@ import style from './Header.module.css';
 import Logo from './Logo';
 import Auth from './Auth';
 import Heading from './Heading';
-// import Auth from './Auth';
 
 
 export const Header = () => (
@@ -11,7 +10,6 @@ export const Header = () => (
         <Logo/>
         <Heading text="Главная" />
         <Auth/>
-        {/* <Search/> */}
       </div>
   </header>
 );

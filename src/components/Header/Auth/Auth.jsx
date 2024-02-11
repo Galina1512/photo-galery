@@ -1,35 +1,55 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth } from '../../../hooks/useAuth';
 import _ from './Auth.module.css';
 import {ReactComponent as AuthIcon} from './img/auth.svg';
 import { urlAuth } from '../../../api/auth';
-// import { urlListPhoto } from '../../../api/const';
+import { deleteToken } from '../../../store/token/tokenReducer';
+import Preloader from '../../../UI/PreLoader';
 
-export const Auth = ({token}) => {
-  // const [listPhoto, setListPhoto] = useState({});
+export const Auth = () => {
+const dispatch= useDispatch();
+const [auth, loading, clearAuth] = useAuth();
+const [showBtn, setShowBtn] = useState(false);
 
-  useEffect (() => {
-    if (!token) return;
+const login = () => {
+  window.location.href = urlAuth;
+};
 
-    fetch (`${urlAuth}`, {
-      headers: {
-        Autorization: `bearer ${token}`,
-      },
-    })
-    .then (response => response.json())
-    .then(({ data: { name, profile_image: iconImg, username } }) => {
-      const img = iconImg.small.replace(/\?.*$/, '');
-      const data = { name, img, username };
-      return data;
-    })});
+const getOut = () => {
+  setShowBtn(!showBtn);
+};
+
+const logout = () => {
+  dispatch(deleteToken());
+  clearAuth();
+};
 
   return (
-    <div className={_.container}>
-      <a href={`urlAuth`} className={_.btn}>
-        <AuthIcon className={_.svg} />
-      </a>
-      <button className={_.logout} >
-        Войти
-      </button>
-    </div>
+    <>
+    {loading ? (
+      <Preloader />
+    ) : auth?.data?.name ? (
+      <div>
+        <button onClick={getOut}> 
+        {auth?.data?.name} 
+        </button>
+        {showBtn && (
+          <button onClick={logout} className={_.logout}>
+          Выход
+        </button>
+        )}
+      </div>
+    ) : (
+      <div className={_.container}>
+          <AuthIcon className={_.svg} />
+        <button className={_.logout} onClick={login} >
+            Войти
+        </button>
+      </div>
+    )
+    }
+
+    </>
   );
 };

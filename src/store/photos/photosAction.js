@@ -4,7 +4,7 @@ import { ACCESS_KEY, URL_ALL_PHOTOS } from '../../api/const';
 
 export const photosRequestAsync = createAsyncThunk(
   'photos/fetch',
-  (_, { getState }) => {
+  (_, {getState}) => {
     const token = getState().token.token;
     const { photos, page, count } = getState().photos;
 

@@ -6,7 +6,7 @@ export const updateToken = (token) => ({
   token,
 });
 
-export const delToken = () => ({
+export const deleteToken = () => ({
   type: DELETE_TOKEN,
   token: '',
 });

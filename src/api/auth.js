@@ -9,7 +9,7 @@ import {
 
 const searchParams = new URLSearchParams('');
 
-searchParams.append('cleint_id', ACCESS_KEY);
+searchParams.append('client_id', ACCESS_KEY);
 searchParams.append('redirect_uri', REDIRECT_URI);
 searchParams.append('response_type', RESPONSE_TYPE);
 searchParams.append('scope', SCOPE);
