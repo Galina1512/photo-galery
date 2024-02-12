@@ -3,18 +3,13 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { photosRequestAsync } from '../../../store/photos/photosAction';
 import { firstPhotos } from '../../../store/photos/photosSlice';
-// import { ImageList, useMediaQuery } from '@mui/material';
 import Preloader from '../../../UI/PreLoader';
 import AllPhotosFirstPage from './AllPhotosFirstPage/AllPhotosFirstPage';
-// import { UpBtn } from '../../../UI/UpBtn/UpBtn';
-// import { generateRandomId } from '../../../utils/generateRandomId';
-// import { PhotoCard } from './PhotoCard/PhotoCard';
 
 export const List = () => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.photos.photos);
   const loading = useSelector((state) => state.photos.loading);
-  const error = useSelector((state) => state.photos.error);
   const page = useSelector((state) => state.photos.page);
   const endList = useRef(null);
 
@@ -34,9 +29,7 @@ export const List = () => {
         rootMargin: '100px',
       },
     );
-
     observer.observe(endList.current);
-
     return () => {
       if (endList.current) {
          observer.unobserve(endList.current);
@@ -58,10 +51,7 @@ export const List = () => {
         ))}
         <li ref={endList} className={_.end}/>
       </ul>
-
       {page !== 1 && loading && <Preloader/>}
-
-      {/* <div ref={endList} /> */}
     </div>
   );
 };

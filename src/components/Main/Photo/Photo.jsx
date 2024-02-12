@@ -9,7 +9,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { changeLike } from '../../../store/photo/photoSlice';
 import { likeUpdate } from '../../../api/likeUpdate';
 import PreLoader from '../../../UI/PreLoader';
-// import { format } from 'date-fns';
+import dayjs from 'dayjs';
 
 export const Photo = () => {
   const {id} = useParams();
@@ -21,9 +21,8 @@ export const Photo = () => {
   const loading = useSelector(state => state.photo.loading);
   const { likedByUser} = useSelector(state => state.photo);
   const username= photo?.user?.username;
-  // const apiDate = photo?.created_at;
-// const date = format(new Date(apiDate), 'dd.MM.yyyy');
-
+  const date = photo?.created_at;
+  const formattedDate = dayjs(date).format('DD.MM.YYYY');
   
   useEffect(() => {
   dispatch(photoRequestAsync(id));
@@ -51,16 +50,14 @@ if (loading) return <PreLoader/>
       </div>
 
       <div className={_.date}>
-        <p className={_.text}>{photo?.created_at} </p>
-          {/* <p className={_.text_date}>{date}</p> */}
-          {/* <p className={_.text_date}>{(photo?.created_at).slice(0, 10)}</p> */}
+        <p className={_.text}>{formattedDate} </p>
           <button 
             className={_.heart} 
             onClick={handleLike}
             id={id}
             >
             {likes}  
-            { likedByUser ? <FavoriteIcon width='140px'  /> : <FavoriteBorderIcon  /> }
+            { likedByUser ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
           </button> 
       </div>
     </div>

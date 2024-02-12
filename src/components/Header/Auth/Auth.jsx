@@ -31,9 +31,9 @@ const logout = () => {
       <Preloader />
     ) : auth?.data?.name ? (
       <div>
-        <button onClick={getOut}> 
+        <p className={_.text_name} onClick={getOut}> 
         {auth?.data?.name} 
-        </button>
+        </p>
         {showBtn && (
           <button onClick={logout} className={_.logout}>
           Выход

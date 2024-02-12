@@ -1,5 +1,6 @@
 import BeatLoader from 'react-spinners/BeatLoader';
+import _ from  './Preloader.module.css';
 
 export const PreLoader = () => (
-  <BeatLoader color="#8AE9F3" size={22} />
+  <BeatLoader className={_.preloader} color="#A2E1D6" size={18} />
 );

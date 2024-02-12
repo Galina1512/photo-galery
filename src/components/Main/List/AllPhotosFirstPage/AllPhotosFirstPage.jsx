@@ -1,9 +1,11 @@
 import _ from './AllPhotos.module.css';
 import { Link, useParams } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 export const AllPhotosFirstPage = ({data}) => {
   const {id} = useParams();
-
+  const date = data.created_at;
+  const formattedDate = dayjs(date).format('DD.MM.YYYY');
 
   return (
     <>
@@ -21,7 +23,7 @@ export const AllPhotosFirstPage = ({data}) => {
     </div>
 
     <div className={_.formatDate}>
-      <p className={_.date}>{(data.created_at).slice(0, 10)}</p>
+      <p className={_.date}>{formattedDate}</p>
       <p className={_.likes}>
         {data.likes} 
         <span>❤️</span> 
