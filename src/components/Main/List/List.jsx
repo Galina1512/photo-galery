@@ -32,10 +32,10 @@ export const List = () => {
     observer.observe(endList.current);
     return () => {
       if (endList.current) {
-         observer.unobserve(endList.current);
+        endList.current && observer.unobserve(endList.current);
       }
     };
-  }, [endList.current]);
+  }, [dispatch]);
 
   return (
     <div className={_.main}>

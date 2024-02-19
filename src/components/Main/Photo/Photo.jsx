@@ -33,19 +33,17 @@ const handleLike = () => {
   likeUpdate(id, token, method);
   dispatch(changeLike());
 }
+
 if (loading) return <PreLoader/>
 
   return (
   <div className={_.container}>
     <div className={_.info_author}>
       <div className={_.author}>
-      <a target='_blank' href={`https://unsplash.com/@${username}`} rel='noreferrer' className={_.author}>
-      <img src={`${photo?.user?.profile_image.small}`} className={_.avatar} alt='avatar'/>
-      <p className={_.text}>Автор: {photo?.user?.name} </p>
-    </a>
-
-
-
+        <a target='_blank' href={`https://unsplash.com/@${username}`} rel='noreferrer' className={_.author}>
+          <img src={`${photo?.user?.profile_image.small}`} className={_.avatar} alt='avatar'/>
+          <p className={_.text}>Автор: {photo?.user?.name} </p>
+        </a>
         <p className={_.text}>{photo?.user?.location} </p>
       </div>
 

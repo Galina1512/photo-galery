@@ -1,6 +1,6 @@
 export const ACCESS_KEY = 'lxMNyRHPUeX3nxlAIFhqCcozaCVK1JaOEZGlJbF7TT8';
 export const SECRET_KEY = 'El_IKf2GatfbVSpojF4KVRXdm8uKgDE1Ntsgt_dS3UQ';
-export const REDIRECT_URI = 'http://localhost:3000/';
+export const REDIRECT_URI = 'http://localhost:3000/auth';
 export const RESPONSE_TYPE = 'code';
 export const SCOPE = 'public read_user read_photos write_likes';
 export const URL_ALL_PHOTOS = 'https://api.unsplash.com/photos/';
